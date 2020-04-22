@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body{
+background-color:#C0C0C0;
+}
+#output_image
+{
+ max-width:200px;
+
+}
+div.one{
+background-color:#FF8000;
+border:2px solid black;
+margin:0px 100px 0px 100px;
+}
+</style>
+<script type="text/javascript">
+function preview_image(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+}
+function fun()
+{
+var c1= document.getElementById("Mycheck");
+var c2= document.getElementById("c");
+var c3= document.getElementById("ch");
+var c4= document.getElementById("che");
+var c5= document.getElementById("chec");
+var c6= document.getElementById("check");
+
+var y = document.getElementById('yop').value;
+var d = new Date(y);
+var no= document.forms["FF"]["con"].value;
+var gra= document.getElementById('g').value;
+var grad= document.getElementById('g1').value;
+var grade= document.getElementById('g2').value;
+var x = document.getElementById("cour").value;
+var flag=0
+  if(no!="" || no.length==10)
+
+ {
+	 for(i=0;i<no.length;i++)
+		{
+			if(no.charAt(i)>='0'&& no.charAt(i)<='9')
+                          {flag=flag+1}
+}		}
+if(flag==10)
+{
+
+  if ((gra!=" " || gra.length==1) && (gra.charAt(0)>='A'&&gra.charAt(0)<='C'))
+ {
+	if ((grad!=" " || grad.length==1) && (grad.charAt(0)>='A'&&grad.charAt(0)<='C'))
+	 {
+		if ((grade!=" " || grade.length==1) && (grade.charAt(0)>='A'&&grade.charAt(0)<='C'))
+ 		    {
+                          if(x!="")
+			{
+                               if ( !!d.valueOf() && d.getFullYear()<=2022 && d.getFullYear()>=2020) 
+				{
+    				    if (c.checked == true || Mycheck.checked == true || ch.checked == true || che.checked == true || chec.checked == true || check.checked == true)
+					{
+					
+					}		
+			               else
+					{
+						alert("select atleat one technical skill")
+						return  false
+					}
+                                  }
+				else
+				{
+				alert("YOP:Not eligible to register i.e 2020-2022")
+				return false;
+				}
+			}		
+				else
+			 {
+                          alert("select Branch Ex: CSE");
+ 			  return false
+			 }
+			}	  
+			
+  		else
+			{
+			alert("Bteh GRADE filed : 1)uppercase 2) single character A-C")
+			return false
+			}
+  
+	           }
+	else
+	{
+		alert("PU GRADE filed : 1)uppercase 2) single character A-C")
+		return false
+	}
+}
+else
+{
+alert("SSC GRADE filed : 1)uppercase 2) single character A-C")
+return false
+}
+}
+else
+ 						{
+      						
+         						 alert(" contact field: 1)must be filled 2)only numbers 3) length of exactly 10");
+       							   return false;
+	 					    
+	 					  
+  					        }
+alert("success")
+
+
+}
+
+</script>
+</head>
+<body>
+<div class="one">
+<form name="FF" onsubmit="return fun()">
+<h1  align="center">Personal Details Form</h1>
+<table align="center" border="5">
+<tr >
+<th width="15%"></th>
+<th width="40%"></th>
+<th width="55%"></th>
+
+</tr>
+<tr  style="background-color:yellow">
+<td colspan="2" align="center"><h3>Personal detils</td>
+<td colspan="2" align="center"><h3>Educational detils</td>
+</tr>
+<tr style="background-color:yellow">
+<td><p>First Name:</p></td>
+<td><input type="text" name="fname" value="Jagan mohan Reddy"></td>
+<td rowspan="3"><label for="files">Select image:</label><input type="file" accept="image/*" onchange="preview_image(event)">
+ <img id="output_image"/></td>
+</tr>
+<tr style="background-color:yellow">
+<td><p>Mail:</p></td>
+<td><input type="email" value=" "></td>
+</tr>
+<tr style="background-color:yellow">
+<td><p>Contact No.: </p></td>
+<td><select id="contact">
+<option value="1">+91</option>
+<option value="2">+254</option>
+<option value="3">+92</option>
+<option value="4">+62</option>
+</select><input type="tel" name="con" value="" ></td>
+</tr>
+<tr style="background-color:yellow">
+<td><p>Age:</p></td>
+<td><input type="number" min="0" max="30"  value="20"></td>
+<td><label for="files">Signature:</label> <input type="file" id="files" name="files" multiple><br><br></td>
+</tr>
+<tr style="background-color:yellow">
+<td><p>Gender:</p></td>
+<td><input type="radio" id="male" name="gender" value="male"><label for"male">Male</label><input type="radio" id="female" name="gender" value="female"><label for"female">Female</label>
+</td>
+<td> <label for="files">Resume:</label> <input type="file" id="files" name="files"><br><br></td>
+</tr>
+<tr style="background-color:yellow">
+<td><p>Nationality:</p></td>
+<td><input type="text" value=" "></td>
+<td rowspan="2"> <h4> Education</h4><label for="files">SSC:</label> <input type="number" id="files" name="files" min="0" max="99"  value="70">% <input type="number" name="c" step="0.1" min="0" max="99"  value="7.0">CGPA <input type="text" id="g">Grade<br><br>
+<label for="files">PU:</label> <input type="number" id="filess" name="files" min="0" max="99"  value="70"> % <input type="number" name="c" step="0.1" min="0.0" max="9.9"  value="7.0">CGPA <input type="text" id="g1">Grade<br><br>
+<label for="files">Btech:</label> <input type="number" id="filess" name="files" min="0" max="99"  value="70">% <input type="number" name="c" step="0.1" min="0.0" max="9.9"  value="7.0">CGPA <input type="text" id="g2">Grade<br><br>
+</tr>
+<tr style="background-color:yellow">
+<td> YOP:<br><br>DOB:</p></td>
+</td>
+<td> <input type="date" id="yop" name="yop"><br><br><input type="date" id="dob" name="dob"><br><br></td>
+
+</tr>
+<tr style="background-color:yellow">
+<td><p>Address:</p></td>
+<td>
+<textarea id="t" rows="" cols="">
+
+</textarea></td>
+<td> <label for="files">Specialization:</label>
+<select id="cour" s>
+<option></option>
+<option value="1">CSE</option>
+<option value="2">ECE</option>
+<option value="3">EEE</option>
+<option value="4">MECHANICAL</option>
+<option value="5">CIVIL</option>
+<option value="6">IT</option>
+</select></td>
+</tr>
+<tr style="background-color:yellow">
+<td><p>Technical Skills:</td>
+<td colspan="2">
+<input type="checkbox" id="c"> C
+<input type="checkbox" id="ch"> C++
+<input type="checkbox" id="che"> Java
+<input type="checkbox" id="chec"> DBMS
+<input type="checkbox" id="check"> CCNA
+<input type="checkbox" id="Mycheck"> Testing</td>
+
+</tr>
+
+<tr style="background-color:yellow">
+<td colspan="2" align="center"><input type="submit" value="submit"></td>
+<td align="center"><input type="reset" value="Reset"></td>
+</tr>
+</table>
+ 
+</form>
+</div>
+</body>
+</html>
